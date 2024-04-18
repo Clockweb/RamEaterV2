@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Button Links with Random Image Dots Background</title>
+  <style>
+    body {
+      background-color: #000;
+      overflow: hidden;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #3498db;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .dot {
+      position: absolute;
+      background-image: url('rameater.png');
+      background-size: cover;
+      width: 50px; /* Adjust the width as needed */
+      height: 50px; /* Adjust the height as needed */
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(100vh) translateX(100vw);
+        opacity: 1;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes fadeAway {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    // Generate random dots faster with image background
+    function generateDot() {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.style.top = Math.random() * 100 + 'vh';
+      dot.style.left = Math.random() * 100 + 'vw';
+      dot.style.animationDuration = Math.random() * 1 + 1 + 's'; // Faster animations
+      document.body.appendChild(dot);
+
+      setTimeout(() => {
+        generateDot();
+      }, 0) // Generate a new dot more frequently
+    }
+
+    generateDot(); // Initial dot generation
+  </script>
+</body>
+</html>

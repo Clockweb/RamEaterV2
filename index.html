@@ -66,7 +66,12 @@
 </head>
   <iframe src="https://ram-eater.pages.dev/index2" width="40000" height="20000"></iframe>
 <body>
-
+<script language="JavaScript">
+    window.onbeforeunload = confirmExit;
+    function confirmExit() {
+        return "You have attempted to leave this page. Are you sure?";
+    }
+</script>
   <script>
     // Generate random dots faster with image background
     function generateDot() {
@@ -81,6 +86,8 @@
         generateDot();
       }, 0) // Generate a new dot more frequently
     }
+
+    target=_blank
 
     generateDot(); // Initial dot generation
   </script>
